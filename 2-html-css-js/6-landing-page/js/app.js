@@ -1,59 +1,74 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Adiciona um evento que será executado quando o DOM estiver completamente carregado.
-    const swiper = new Swiper('.swiper', {
-        // Cria uma nova instância do Swiper (carrossel), associada ao contêiner com a classe 'swiper'.
-        direction: 'horizontal',
-        // Define a direção de transição dos slides como horizontal.
-        loop: false,
-        // Define que o carrossel não irá repetir os slides (não fará looping).
+document.addEventListener("DOMContentLoaded", function () {
+  const swiper = new Swiper(".swiper", {
+    direction: "horizontal",
+    loop: false,
 
-        pagination: {
-            el: '.swiper-pagination'
-            // Configura a paginação (indicadores de slide) utilizando o seletor '.swiper-pagination'.
-        },
+    pagination: {
+      el: ".swiper-pagination",
+    },
 
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev'
-            // Define os botões de navegação para avançar ('.swiper-button-next') e retroceder ('.swiper-button-prev') os slides.
-        }
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "ArrowLeft") {
+      swiper.slidePrev();
+    } else if (event.key === "ArrowRight") {
+      swiper.slideNext();
+    }
+  });
+
+  const gameInput = document.getElementById("gameInput");
+
+  gameInput.addEventListener("keypress", function (event) {
+    if (event.key === "Enter") {
+      let searchGame = gameInput.value.trim().toUpperCase();
+
+      switch (searchGame) {
+        case "MARIO":
+          swiper.slideTo(0);
+          break;
+        case "POKEMON":
+          swiper.slideTo(1);
+          break;
+        default:
+          alert("Jogo não foi encontrado");
+          break;
+      }
+    }
+  });
+
+  // Seleciona todos os botões que abrem o modal
+  const buttons = document.querySelectorAll(".btn-modal");
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", function () {
+      const modalId = button.getAttribute("data-target");
+      const modal = document.querySelector(modalId);
+      modal.style.display = "block";
     });
+  });
 
-    document.addEventListener('keydown', function (event) {
-        // Adiciona um listener para eventos de teclado.
-        if(event.key === 'ArrowLeft') {
-            swiper.slidePrev();
-            // Se a tecla pressionada for a seta para a esquerda, move para o slide anterior.
-        } else if(event.key === 'ArrowRight') {
-            swiper.slideNext();
-            // Se a tecla pressionada for a seta para a direita, move para o próximo slide.
-        }
+  // Função para fechar os modais
+  const closeButtons = document.querySelectorAll(".close");
+
+  closeButtons.forEach((button) => {
+    button.addEventListener("click", function () {
+      const modal = button.closest(".modal");
+      modal.style.display = "none";
     });
+  });
 
-    const gameInput = document.getElementById('gameInput');
-    // Seleciona o elemento de entrada de texto com o ID 'gameInput'.
-
-    gameInput.addEventListener('keypress', function (event){
-        // Adiciona um evento que será disparado quando uma tecla for pressionada no campo de entrada.
-        if(event.key === 'Enter'){
-            // Verifica se a tecla pressionada foi 'Enter'.
-            let searchGame = gameInput.value.trim().toUpperCase();
-            // Obtém o valor do campo de entrada, remove espaços em branco nas extremidades e converte para maiúsculas.
-
-            switch(searchGame){
-                case 'MARIO':
-                    swiper.slideTo(0);
-                    // Se o valor digitado for 'MARIO', move para o primeiro slide (índice 0).
-                    break;
-                case 'POKEMON':
-                    swiper.slideTo(1);
-                    // Se o valor digitado for 'POKEMON', move para o segundo slide (índice 1).
-                    break;
-                default:
-                    alert('Jogo não foi encontrado');
-                    // Se o valor não corresponder a nenhum dos casos, exibe um alerta informando que o jogo não foi encontrado.
-                    break;
-            }
-        }
+  // Fecha o modal se o usuário clicar fora da área do modal
+  window.addEventListener("click", function (event) {
+    const modals = document.querySelectorAll(".modal");
+    modals.forEach((modal) => {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
     });
+  });
 });
