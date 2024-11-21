@@ -3,6 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
     <link rel="stylesheet" href="css/index.css" />
     <link
       rel="stylesheet"
@@ -49,6 +53,7 @@
       </div>
       <div class="search">
         <input type="text" id="gameInput" placeholder="Search" />
+        <i class="fas fa-search search-icon"></i>
       </div>
     </header>
     <main>
@@ -101,7 +106,7 @@
                 </div>
                 <h1>Mario</h1>
               </div>
-              <img src="images/mario.png" alt="Mario" />
+              <img src="images/mario.png" alt="Mario" class="mario" />
               <div class="right">
                 <ul class="description">
                   <li>
@@ -113,13 +118,15 @@
                 </ul>
                 <div class="trailer">
                   <h2>Assista ao Trailer</h2>
-                  <iframe
-                    width="1280"
-                    height="720"
-                    src="https://www.youtube.com/embed/5kcdRBHM7kM"
-                    title="Super Mario Odyssey Trailer"
-                    allowfullscreen
-                  ></iframe>
+                  <div class="trailer-video">
+                    <iframe
+                      width="1280"
+                      height="720"
+                      src="https://www.youtube.com/embed/5kcdRBHM7kM"
+                      title="Super Mario Odyssey Trailer"
+                      allowfullscreen
+                    ></iframe>
+                  </div>
                 </div>
               </div>
             </div>
@@ -189,13 +196,15 @@
                 </ul>
                 <div class="trailer">
                   <h2>Assista ao Trailer</h2>
-                  <iframe
-                    width="1280"
-                    height="720"
-                    src="https://www.youtube.com/embed/I4RynqpahT8?si=bU00tE-um1_3rR7k"
-                    title="Pokemon Legends Arceus Trailer"
-                    allowfullscreen
-                  ></iframe>
+                  <div class="trailer-video">
+                    <iframe
+                      width="1280"
+                      height="720"
+                      src="https://www.youtube.com/embed/I4RynqpahT8?si=bU00tE-um1_3rR7k"
+                      title="Pokemon Legends Arceus Trailer"
+                      allowfullscreen
+                    ></iframe>
+                  </div>
                 </div>
               </div>
             </div>
@@ -267,13 +276,15 @@
                 </ul>
                 <div class="trailer">
                   <h2>Assista ao Trailer</h2>
-                  <iframe
-                    width="1280"
-                    height="720"
-                    src="https://www.youtube.com/embed/1rPxiXXxftE"
-                    title="The Legend of Zelda: Breath of the Wild Trailer"
-                    allowfullscreen
-                  ></iframe>
+                  <div class="trailer-video">
+                    <iframe
+                      width="1280"
+                      height="720"
+                      src="https://www.youtube.com/embed/1rPxiXXxftE"
+                      title="The Legend of Zelda: Breath of the Wild Trailer"
+                      allowfullscreen
+                    ></iframe>
+                  </div>
                 </div>
               </div>
             </div>
@@ -283,7 +294,54 @@
         <div class="swiper-button-next"></div>
       </section>
     </main>
-    <footer></footer>
+    <footer>
+      <div class="footer-container">
+        <div class="footer-logo">
+          <img src="images/nintendo-switch.png" alt="Nintendo Switch Logo" />
+        </div>
+        <nav class="footer-nav">
+          <ul>
+            <li>
+              <a href="https://www.nintendo.com/us/whatsnew/" target="_blank"
+                >Switch News</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.nintendo.com/pt-br/switch/online/"
+                target="_blank"
+                >Switch Online</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.nintendo.com/us/switch/online/nintendo-switch-online/classic-games/"
+                target="_blank"
+                >Switch Classic</a
+              >
+            </li>
+          </ul>
+        </nav>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/Nintendo" target="_blank"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+          <a href="https://twitter.com/Nintendo" target="_blank"
+            ><i class="fab fa-twitter"></i
+          ></a>
+          <a href="https://www.instagram.com/nintendoamerica/" target="_blank"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a href="https://www.youtube.com/user/Nintendo" target="_blank"
+            ><i class="fab fa-youtube"></i
+          ></a>
+        </div>
+        <div class="footer-info">
+          <p>&copy; 2024 Gaming Website. Todos os direitos reservados.</p>
+          <p>Desenvolvido por André Arnoni</p>
+        </div>
+      </div>
+    </footer>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="js/app.js"></script>
   </body>
